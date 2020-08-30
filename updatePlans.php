@@ -1,9 +1,30 @@
+<?php
+	if(!class_exists('Database') and !class_exists('Plans'))
+		require("./Database.php");  //already included
+	use dboperations\helper\Database as db;
+    use dboperations\helper\Plans as plans;
+	if(isset($_POST["submit"])){
+		$id=$_POST["id"];
+    	$name=$_POST["name"];
+    	$daysCount=$_POST["daysCount"];
+    	$maxBooks=$_POST["maxBooks"];
+    	$amount=$_POST["amount"];
+    	$maxIssueDuration=$_POST["maxIssueDuration"];
+    	$penaltyAmount=$_POST["penaltyAmount"];
+		$result=plans::update($id,$name, $daysCount, $maxBooks, $amount, $maxIssueDuration, $penaltyAmount);
+		if($result)
+			header("Location: ./viewData.php");
+		else
+			header("location: ./updatePlans.php?id=$id&error=1");
+	}
+?>
 <html>
 <head>
 	<title>Update Plan</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 <head>
 <body class="bg-dark">
+
 <div class="row">
 <div class="col-2">
 </div>
@@ -14,24 +35,20 @@
 	<a class="btn btn-info" href='./viewData.php' >Back</a>
 	<font size="5px"><b>Update Plan</b></font>
 </div>
-<center>
-
+	<center>
     <?php
-        require("./Database.php");
-        use dboperations\helper\Database as db;
+		if($_GET['error']==1)
+			echo "Something Went Wrong";
         if(isset($_GET["id"])){
             $id=$_GET["id"];
             $result=db::query("select * from plans where id=$id");
-            $row=mysqli_fetch_assoc($result);
+			if($result)
+            	$row=mysqli_fetch_assoc($result);
         }
-        else{
+        else
             echo "Something Went Wrong";
-        }
-        
     ?>
-
     <form method="post" action="./updatePlans.php">
-
 
 			<input type="hidden" name="id" value="<?php echo $row['id'];?>">
             <div class="input-group">
@@ -76,32 +93,12 @@
 				</div>
 				<input type="number" class="form-control" placeholder="amount" name="penaltyAmount" value="<?php echo $row['penalty']; ?>">
 			</div>
-
-			<input class="btn btn-block btn-primary" type="submit" name="submit" value="Update">
+			
+		<input class="btn btn-block btn-primary" type="submit" name="submit" value="Update">
     </form>
-<?php
-	//require("./Database.php");  //already included
-    use dboperations\helper\Plans as plans;
-	if(isset($_POST["submit"])){
-		$id=$_POST["id"];
-    	$name=$_POST["name"];
-    	$daysCount=$_POST["daysCount"];
-    	$maxBooks=$_POST["maxBooks"];
-    	$amount=$_POST["amount"];
-    	$maxIssueDuration=$_POST["maxIssueDuration"];
-    	$penaltyAmount=$_POST["penaltyAmount"];
-	
-		$result=plans::update($id,$name, $daysCount, $maxBooks, $amount, $maxIssueDuration, $penaltyAmount);
-		if($result)
-			header("Location: ./viewData.php");
-		else
-			echo "Something went wrong";
-	}
-?>
 </center>
 </div>
 </div>
 </div>
-
 </body>
 </html>

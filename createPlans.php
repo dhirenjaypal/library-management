@@ -13,7 +13,7 @@
 		if($result)
 			header("Location: ./viewData.php");
 		else
-			echo "<center><font style='color: white'>Something went wrong</font></center>";
+			$error=true;
 	}
 ?>
 <!DOCTYPE html>
@@ -35,6 +35,10 @@
 	<font size="5px"><b>Create New Plan</b></font>
 </div>
 <center>
+<?php
+if($error)
+		echo "<font style='color: white'>Something went wrong</font>";
+?>
 <form method="post" action="./createPlans.php">
 
             <div class="input-group">

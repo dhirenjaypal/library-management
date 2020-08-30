@@ -15,7 +15,8 @@
 	<a class="btn btn-info" href='./createPlans.php' >Insert New Plan</a>
 </div>
 <?php
-require("./Database.php");
+if(!class_exists('Database') and !class_exists('Plans'))
+	require("./Database.php");
 use dboperations\helper\Plans as plans;
 use dboperations\helper\Database as db;
 
