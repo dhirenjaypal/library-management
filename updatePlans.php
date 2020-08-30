@@ -1,8 +1,8 @@
 <?php
 	if(!class_exists('Database') and !class_exists('Plans'))
 		require("./Database.php");  //already included
-	use dboperations\helper\Database as db;
     use dboperations\helper\Plans as plans;
+	use dboperations\helper\Database as db;
 	if(isset($_POST["submit"])){
 		$id=$_POST["id"];
     	$name=$_POST["name"];

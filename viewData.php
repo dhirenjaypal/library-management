@@ -66,7 +66,7 @@ if(isset($_GET["type"])){
 <div class="card bg-info rounded-lg m-5">
 <div class="card-header bg-primary text-white text-center">
 <h2>List of Members</h>
-<a class="btn btn-info" href='./createPlans.php' >Insert New Plan</a>
+<a class="btn btn-info" href='./createUser.php' >Insert New Member</a>
 </div>
 <?php
 
@@ -101,12 +101,12 @@ while($row=mysqli_fetch_assoc($result)){
 	<td>".$row['emailAddress']."</td>
 	<td>";
 	if($row['isActive']=='YES')
-		echo "<input type='checkbox' checked disabled>";
+		echo "<input class='input-group' type='checkbox' checked disabled>";
 	else
-		echo "<input type='checkbox' disabled>";
+		echo "<input class='input-group' type='checkbox' disabled>";
 	echo "</td>
 	<td><a class='btn btn-danger' href='./viewData.php?type=user&id=".$row['id']."'>Remove</a></td>
-	<td><a class='btn btn-info' href='./updatePlans.php?id=".$row['id']."'>Update</a></td>
+	<td><a class='btn btn-info' href='./updateUser.php?id=".$row['id']."'>Update</a></td>
 	</tr>";
 }
 echo "</table>";

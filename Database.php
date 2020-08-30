@@ -34,7 +34,7 @@ class Members{
         return mysqli_query(Database::getConnection(),"delete from members where id=$id");
     }
 	public static function update($id, $name, $address, $phone, $emailAddress, $isActive){
-        return mysqli_query(Database::getConnection(),"update members set name='$name', address=$address, phone=$phone, emailAddress=$emailAddress, isActive=$isActive where id=$id");
+        return mysqli_query(Database::getConnection(),"update members set name='$name', address='$address', phone=$phone, emailAddress='$emailAddress', isActive='$isActive' where id=$id");
     }
 }
 
