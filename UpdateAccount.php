@@ -22,7 +22,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Create Account</title>
+	<title>Update Account</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 <head>
 <body class="bg-dark">

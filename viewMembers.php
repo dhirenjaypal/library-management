@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Plans</title>
+	<title>Members</title>
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<style>
 	tr:hover{
