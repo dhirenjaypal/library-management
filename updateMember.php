@@ -13,7 +13,7 @@
 			$isActive='NO';
 		$result=users::update($id, $name, $address, $phone, $emailAddress, $isActive);
 		if($result)
-			header("Location: ./viewData.php");
+			header("Location: ./viewMembers.php");
 		else
 			$error=true;
 	}
@@ -26,6 +26,14 @@
 <head>
 <body class="bg-dark">
 
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="index.php">Admin</a></li>
+		<li class="breadcrumb-item"><a href="viewMembers.php">Members</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Update Member</li>
+	</ol>
+</nav>
+
 <div class="row">
 <div class="col-2">
 </div>
@@ -33,7 +41,6 @@
 
 <div class="card bg-info rounded-lg m-5">
 <div class="card-header bg-primary text-white text-center">
-	<a class="btn btn-info" href='./viewData.php' >Back</a>
 	<font size="5px"><b>Update Member</b></font>
 </div>
 <center>
@@ -49,7 +56,7 @@
         else
             echo "Something Went Wrong";
 ?>
-<form method="post" action="./updateUser.php">
+<form method="post" action="./updateMember.php">
 
 			<input type="hidden" name="id" value="<?php echo $row['id'];?>">
             <div class="input-group">

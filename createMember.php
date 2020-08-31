@@ -12,7 +12,7 @@
 			$isActive='NO';
 		$result=users::insert($name, $address, $phone, $emailAddress, $isActive);
 		if($result)
-			header("Location: ./viewData.php");
+			header("Location: ./viewMembers.php");
 		else
 			$error=true;
 	}
@@ -25,6 +25,14 @@
 <head>
 <body class="bg-dark">
 
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="index.php">Admin</a></li>
+		<li class="breadcrumb-item"><a href="viewMembers.php">Members</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Create New Member</li>
+	</ol>
+</nav>
+
 <div class="row">
 <div class="col-2">
 </div>
@@ -32,7 +40,6 @@
 
 <div class="card bg-info rounded-lg m-5">
 <div class="card-header bg-primary text-white text-center">
-	<a class="btn btn-info" href='./viewData.php' >Back</a>
 	<font size="5px"><b>Create New Member</b></font>
 </div>
 <center>
@@ -40,7 +47,7 @@
 if($error)
 		echo "<font style='color: white'>Something went wrong</font>";
 ?>
-<form method="post" action="./createUser.php">
+<form method="post" action="./createMember.php">
 
             <div class="input-group">
 				<div class="input-group-prepend">

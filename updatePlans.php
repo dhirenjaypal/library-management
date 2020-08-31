@@ -25,6 +25,14 @@
 <head>
 <body class="bg-dark">
 
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="index.php">Admin</a></li>
+		<li class="breadcrumb-item"><a href="viewData.php">Plans</a></li>
+		<li class="breadcrumb-item active" aria-current="page">Update Plan</li>
+	</ol>
+</nav>
+
 <div class="row">
 <div class="col-2">
 </div>
@@ -32,7 +40,6 @@
 
 <div class="card bg-info rounded-lg m-5">
 <div class="card-header bg-primary text-white text-center">
-	<a class="btn btn-info" href='./viewData.php' >Back</a>
 	<font size="5px"><b>Update Plan</b></font>
 </div>
 	<center>
