@@ -37,7 +37,7 @@ if(isset($_GET["type"])){
 	}
 }
     $result=db::selectall("plans");
-    echo "<table class='table table-bordered table-primary table-responsive p-4'>";
+    echo "<table class='table table-bordered table-primary p-4'>";
     echo //"<caption class='text-white'>List of plans</caption>
 			"<tr class='bg-primary text-white'>
     		<th>#</th>

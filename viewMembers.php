@@ -13,7 +13,7 @@
 <nav aria-label="breadcrumb">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="index.php">Admin</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Member</li>
+		<li class="breadcrumb-item active" aria-current="page">Members</li>
 	</ol>
 </nav>
 
@@ -38,7 +38,7 @@ if(isset($_GET["type"])){
 	}
 }
 $result=db::selectall("members");
-echo "<table class='table table-bordered table-primary table-responsive p-4'>";
+echo "<table class='table table-bordered table-primary p-4'>";
 echo //"<caption class='text-white'>List of plans</caption>
 "<tr class='bg-primary text-white'>
 <th>#</th>

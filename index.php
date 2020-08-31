@@ -15,8 +15,9 @@
 </nav>
 
 <div class="container-fluid">
-	<a class="btn btn-lg btn-block btn-primary" href="viewData.php">plan</a>
-	<a class="btn btn-lg btn-block btn-primary" href="viewMembers.php">user</a>
+	<a class="btn btn-lg btn-block btn-primary" href="viewData.php">Plans</a>
+	<a class="btn btn-lg btn-block btn-primary" href="viewMembers.php">Members</a>
+	<a class="btn btn-lg btn-block btn-primary" href="viewAccounts.php">Accounts</a>
 </div>
 
 </body>

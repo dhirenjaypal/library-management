@@ -9,6 +9,10 @@ class Database{
     public static function query($query){
         return mysqli_query(Database::getConnection(),$query);
     }
+	public static function selectrow($table, $id){
+        $result=mysqli_query(Database::getConnection(),"select * from $table where id=$id;");
+		return mysqli_fetch_assoc($result);
+    }
 	public static function selectall($table){
         return mysqli_query(Database::getConnection(),"select * from $table;");
     }
@@ -35,6 +39,12 @@ class Members{
     }
 	public static function update($id, $name, $address, $phone, $emailAddress, $isActive){
         return mysqli_query(Database::getConnection(),"update members set name='$name', address='$address', phone=$phone, emailAddress='$emailAddress', isActive='$isActive' where id=$id");
+    }
+}
+
+class Accounts{
+	public static function insert($openingDate, $status, $members_id, $plans_id){
+        return mysqli_query(Database::getConnection(),"insert into accounts (openingDate, status, members_id, plans_id) value( '$openingDate', '$status', $members_id, $plans_id )");
     }
 }
 
