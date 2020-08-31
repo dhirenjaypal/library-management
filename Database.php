@@ -46,6 +46,12 @@ class Accounts{
 	public static function insert($openingDate, $status, $members_id, $plans_id){
         return mysqli_query(Database::getConnection(),"insert into accounts (openingDate, status, members_id, plans_id) value( '$openingDate', '$status', $members_id, $plans_id )");
     }
+	public static function delete($id){
+        return mysqli_query(Database::getConnection(),"delete from accounts where id=$id");
+    }
+	public static function update($id, $openingDate, $status, $members_id, $plans_id){
+        return mysqli_query(Database::getConnection(),"update accounts set openingDate='$openingDate', status='$status', members_id=$members_id, plans_id=$plans_id where id=$id");
+    }
 }
 
 ?>

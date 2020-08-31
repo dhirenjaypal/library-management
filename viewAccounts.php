@@ -27,9 +27,10 @@
 
 require("./Database.php");
 use dboperations\helper\Database as db;
+use dboperations\helper\Accounts as ac;
 
 if(isset($_GET["id"])){
-	$result=db::query("delete from accounts where id=".$_GET['id']);
+	$result=ac::delete($_GET['id']);
 	if(!$result)
 		echo "Something went wrong";
 }

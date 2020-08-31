@@ -45,16 +45,14 @@
 </div>
 <center>
 <?php
-		if($_GET['error']==1)
-			echo "Something Went Wrong";
         if(isset($_GET["id"])){
             $id=$_GET["id"];
-            $result=db::query("select * from members where id=$id");
-			if($result)
-            	$row=mysqli_fetch_assoc($result);
+            $row=db::selectrow('members',$id);
         }
         else
-            echo "Something Went Wrong";
+            $error=true;
+		if($error)
+			echo "Something Went Wrong";
 ?>
 <form method="post" action="./updateMember.php">
 

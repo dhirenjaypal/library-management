@@ -65,7 +65,7 @@
 				<input type="checkbox" class="form-control" name="status" value="ACTIVE">
 			</div>
 			
-            <div class="input-group mb-3">
+            <div class="input-group">
 				<div class="input-group-prepend">
 					<label class="input-group-text" for="inputGroupSelect01">Member</label>
 				</div>
@@ -78,7 +78,7 @@
 				</select>
 			</div>
 			
-			<div class="input-group mb-3">
+			<div class="input-group">
 				<div class="input-group-prepend">
 					<label class="input-group-text" for="inputGroupSelect01">Plan</label>
 				</div>
