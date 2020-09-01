@@ -14,7 +14,7 @@
 	</ol>
 </nav>
 
-<div class="container-fluid bg-info p-4">
+<div class="container-fluid bg-info p-4 border rounded-lg m-1">
 	<a class="btn btn-lg btn-block btn-primary border" href="viewData.php">Plans</a>
 	<a class="btn btn-lg btn-block btn-primary border" href="viewMembers.php">Members</a>
 	<a class="btn btn-lg btn-block btn-primary border" href="viewAccounts.php">Accounts</a>
