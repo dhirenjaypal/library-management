@@ -14,10 +14,11 @@
 	</ol>
 </nav>
 
-<div class="container-fluid">
-	<a class="btn btn-lg btn-block btn-primary" href="viewData.php">Plans</a>
-	<a class="btn btn-lg btn-block btn-primary" href="viewMembers.php">Members</a>
-	<a class="btn btn-lg btn-block btn-primary" href="viewAccounts.php">Accounts</a>
+<div class="container-fluid bg-info p-4">
+	<a class="btn btn-lg btn-block btn-primary border" href="viewData.php">Plans</a>
+	<a class="btn btn-lg btn-block btn-primary border" href="viewMembers.php">Members</a>
+	<a class="btn btn-lg btn-block btn-primary border" href="viewAccounts.php">Accounts</a>
+	<a class="btn btn-lg btn-block btn-primary border" href="viewBooks.php">Books</a>
 </div>
 
 </body>

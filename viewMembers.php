@@ -18,7 +18,7 @@
 </nav>
 
 <!-- Table for members  -->
-<div class="card bg-info rounded-lg m-5">
+<div class="card bg-info rounded-lg">
 <div class="card-header bg-primary text-white text-center">
 <h2>List of Members</h>
 <a class="btn btn-info" href='./createMember.php' >Insert New Member</a>
@@ -38,7 +38,7 @@ if(isset($_GET["type"])){
 	}
 }
 $result=db::selectall("members");
-echo "<table class='table table-bordered table-primary p-4'>";
+echo "<table class='table table-bordered table-primary'>";
 echo //"<caption class='text-white'>List of plans</caption>
 "<tr class='bg-primary text-white'>
 <th>#</th>

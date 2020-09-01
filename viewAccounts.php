@@ -18,7 +18,7 @@
 </nav>
 
 <!-- Table for members  -->
-<div class="card bg-info rounded-lg m-5">
+<div class="card bg-info rounded-lg">
 <div class="card-header bg-primary text-white text-center">
 <h2>List of Accounts</h>
 <a class="btn btn-info" href='./createAccount.php' >Insert New Account</a>
@@ -36,7 +36,7 @@ if(isset($_GET["id"])){
 }
 
 $result=db::selectall("accounts");
-echo "<table class='table table-bordered table-primary p-4'>";
+echo "<table class='table table-bordered table-primary'>";
 echo //"<caption class='text-white'>List of plans</caption>
 "<tr class='bg-primary text-white'>
 <th>#</th>
@@ -44,7 +44,7 @@ echo //"<caption class='text-white'>List of plans</caption>
 <th>Status</th>
 <th>Member</th>
 <th>Plan</th>
-<th>remove</th>
+<th>Delete</th>
 <th>Update</th>
 </tr>";
 $i=0;

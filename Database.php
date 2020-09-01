@@ -54,4 +54,39 @@ class Accounts{
     }
 }
 
+class Books{
+	public static function insert($name, $isbn, $authorName, $price, $pages, $publisher, $bookType, $publishedYear, $qty, $edition){
+        return mysqli_query(Database::getConnection(),"insert into books(name, isbn, authorName, price, pages, publisher, bookType, publishedYear, qty, edition) value('$name', $isbn, '$authorName', $price, $pages, '$publisher', '$bookType', $publishedYear, $qty, '$edition')");
+    }
+	public static function delete($id){
+        return mysqli_query(Database::getConnection(),"delete from __ where id=$id");
+    }
+	public static function update($id){
+        return mysqli_query(Database::getConnection(),"update __ where id=$id");
+    }
+}
+
+//test
+/*
+$test=Books::insert('Learning Web Design', 1491960205, 'Jennifer Niederst Robbins', 500, 808, "O\'Reilly Media", 'TEXTBOOK', 2018, 4, '5th Edition');
+//working//
+//$test=mysqli_query(Database::getConnection(), "insert into books(name, isbn, authorName, price, pages, publisher, bookType, publishedYear, qty, edition) value('Learning Web Design', 1491960205, 'Jennifer Niederst Robbins', 500, 808, 'OReilly Media', 'TEXTBOOK', 2018, 4, '5th Edition')");
+if($test)
+	echo "done";
+else
+	echo "error";
+*/
+//
+
+
+
+
+
+
+
+
+
+//
+
+
 ?>
