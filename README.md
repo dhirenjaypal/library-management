@@ -1,5 +1,5 @@
 # library-management
 library-mangement college project for just learning purpose
 
-Resource used
+# Resource used
 Bootstrap4 : [official Site](http://getbootstrap.com)
