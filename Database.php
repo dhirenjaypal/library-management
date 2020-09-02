@@ -16,6 +16,9 @@ class Database{
 	public static function selectall($table){
         return mysqli_query(Database::getConnection(),"select * from $table;");
     }
+	public static function deleterow($table, $id){
+        return mysqli_query(Database::getConnection(),"delete from $table where id=$id");
+    }
 }
 
 class Plans{
@@ -58,11 +61,8 @@ class Books{
 	public static function insert($name, $isbn, $authorName, $price, $pages, $publisher, $bookType, $publishedYear, $qty, $edition){
         return mysqli_query(Database::getConnection(),"insert into books(name, isbn, authorName, price, pages, publisher, bookType, publishedYear, qty, edition) value('$name', $isbn, '$authorName', $price, $pages, '$publisher', '$bookType', $publishedYear, $qty, '$edition')");
     }
-	public static function delete($id){
-        return mysqli_query(Database::getConnection(),"delete from __ where id=$id");
-    }
-	public static function update($id){
-        return mysqli_query(Database::getConnection(),"update __ where id=$id");
+	public static function update($id, $name, $isbn, $authorName, $price, $pages, $publisher, $bookType, $publishedYear, $qty, $edition){
+        return mysqli_query(Database::getConnection(),"update books set name='$name', isbn=$isbn, authorName='$authorName', price=$price, pages=$pages, publisher='$publisher', bookType='$bookType', publishedYear=$publishedYear, qty=$qty, edition='$edition' where id=$id");
     }
 }
 

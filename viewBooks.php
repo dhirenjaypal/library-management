@@ -29,7 +29,7 @@ use dboperations\helper\Database as db;
 use dboperations\helper\Books as books;
 
 if(isset($_GET["id"])){
-	$result=books::delete($_GET["id"]);
+	$result=db::deleterow('books',$_GET["id"]);
 	if(!$result)
 		echo "Something went wrong";
 }
