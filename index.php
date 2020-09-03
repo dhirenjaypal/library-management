@@ -19,6 +19,7 @@
 	<a class="btn btn-lg btn-block btn-primary border" href="viewMembers.php">Members</a>
 	<a class="btn btn-lg btn-block btn-primary border" href="viewAccounts.php">Accounts</a>
 	<a class="btn btn-lg btn-block btn-primary border" href="viewBooks.php">Books</a>
+	<a class="btn btn-lg btn-block btn-primary border" href="viewIssues.php">Issues</a>
 </div>
 
 </body>
