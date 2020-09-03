@@ -66,27 +66,12 @@ class Books{
     }
 }
 
-//test
-/*
-$test=Books::insert('Learning Web Design', 1491960205, 'Jennifer Niederst Robbins', 500, 808, "O\'Reilly Media", 'TEXTBOOK', 2018, 4, '5th Edition');
-//working//
-//$test=mysqli_query(Database::getConnection(), "insert into books(name, isbn, authorName, price, pages, publisher, bookType, publishedYear, qty, edition) value('Learning Web Design', 1491960205, 'Jennifer Niederst Robbins', 500, 808, 'OReilly Media', 'TEXTBOOK', 2018, 4, '5th Edition')");
-if($test)
-	echo "done";
-else
-	echo "error";
-*/
-//
-
-
-
-
-
-
-
-
-
-//
-
-
+class Issues{
+    public static function insert($dateOfIssue, $status, $accounts_id, $books_id){
+        return mysqli_query(Database::getConnection(),"insert into issues(dateOfIssue, status, accounts_id, books_id) value('$dateOfIssue', '$status', $accounts_id, $books_id)");
+    }
+	public static function update($id, $dateOfIssue, $status, $accounts_id, $books_id){
+        return mysqli_query(Database::getConnection(),"update issues set dateOfIssue='$dateOfIssue', status='$status', accounts_id=$accounts_id, books_id=$books_id where id=$id");
+    }
+}
 ?>

@@ -50,8 +50,8 @@
 <?php
 		if($error)
 			echo "Something Went Wrong";
-        $result=db::query("select * from members");
-		$result2=db::query("select * from plans");
+        $result=db::selectall("members");
+		$result2=db::selectall("plans");
 ?>
 
 <form method="post" action="./createAccount.php">
