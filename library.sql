@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Aug 30, 2020 at 05:17 PM
+-- Generation Time: Sep 03, 2020 at 02:21 PM
 -- Server version: 10.5.5-MariaDB
 -- PHP Version: 7.4.9
 
@@ -29,11 +29,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `accounts` (
   `id` int(11) NOT NULL,
-  `opeaningDate` date DEFAULT NULL,
+  `openingDate` date DEFAULT NULL,
   `status` enum('ACTIVE','INACTIVE') DEFAULT 'ACTIVE',
   `members_id` int(11) NOT NULL,
   `plans_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`id`, `openingDate`, `status`, `members_id`, `plans_id`) VALUES
+(9, '2020-08-31', 'INACTIVE', 7, 22),
+(8, '2020-08-31', 'ACTIVE', 14, 21),
+(4, '2020-08-31', 'ACTIVE', 3, 10),
+(7, '2020-08-31', 'ACTIVE', 1, 10),
+(10, '2020-08-31', 'INACTIVE', 9, 7),
+(11, '2020-08-31', 'ACTIVE', 15, 20);
 
 -- --------------------------------------------------------
 
@@ -44,7 +56,7 @@ CREATE TABLE `accounts` (
 CREATE TABLE `books` (
   `id` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `isbn` varchar(16) DEFAULT NULL,
+  `isbn` bigint(16) DEFAULT NULL,
   `authorName` varchar(100) DEFAULT NULL,
   `price` double DEFAULT NULL,
   `pages` int(11) DEFAULT NULL,
@@ -60,14 +72,9 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `name`, `isbn`, `authorName`, `price`, `pages`, `publisher`, `bookType`, `publishedYear`, `qty`, `edition`) VALUES
-(1, 'java', '1234', 'mayur', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'java', '1234', 'mayur', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(3, 'java', '1234', 'mayur', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(4, 'java', '1234', 'mayur', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(5, 'java', '1234', 'mayur', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(6, 'java', '1234', 'mayur', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(7, 'java', '1234', 'mayur', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(8, 'java', '1234', 'mayur', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+(18, 'Dynamic Web Page Development', 64686464887, 'Prof. Mayur Taunk', 100, 150, '20', 'TEXTBOOK', 2018, 20, '2nd'),
+(17, 'Weekly Jump', 64659896764, 'Dhiren Jaypal', 99, 300, 'Jaypal Publication', 'MAGAZINE', 2020, 20, '989th'),
+(15, 'Learning Web Design', 1491960205, 'Jennifer Niederst Robbins', 500, 808, 'O\'Reilly Media', 'TEXTBOOK', 2018, 4, '5th Edition');
 
 -- --------------------------------------------------------
 
@@ -82,6 +89,17 @@ CREATE TABLE `issues` (
   `accounts_id` int(11) NOT NULL,
   `books_id` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `issues`
+--
+
+INSERT INTO `issues` (`id`, `dateOfIssue`, `status`, `accounts_id`, `books_id`) VALUES
+(1, '2020-09-03', 'ACTIVE', 4, 18),
+(3, '2020-08-01', 'ACTIVE', 11, 17),
+(6, '2020-08-10', 'INACTIVE', 9, 17),
+(7, '2020-09-03', 'INACTIVE', 8, 15),
+(8, '2020-08-13', 'ACTIVE', 10, 18);
 
 -- --------------------------------------------------------
 
@@ -104,9 +122,11 @@ CREATE TABLE `members` (
 
 INSERT INTO `members` (`id`, `name`, `address`, `phone`, `emailAddress`, `isActive`) VALUES
 (1, 'Dhiren', 'Anjar (kutch)', '9999999999', 'dhirennjaypal@gmail.com', 'YES'),
-(3, 'Rohan', 'Kukma, Bhuj (kutch)', '8888888888', 'rohanpc@gmail.comm', 'NO'),
+(3, 'Rohan', 'Kukma, Bhuj (kutch)', '8888888888', 'rohanpc@gmail.comm', 'YES'),
 (7, 'Nitish', 'Ghandhidham (kutch)', '123456654', 'palnitsh@ymail.com', 'YES'),
-(9, 'Harsh', 'Mekhatimbi, Rajkot', '9988776655', 'lakkadharshbr@msn.com', 'YES');
+(14, 'Rajesh', 'Gada, Bhuj (kutch)', '9988661122', 'rajeshm@yaaho.com', 'YES'),
+(9, 'Harsh', 'Mekhatimbi, Rajkot', '9988776655', 'lakkadharshbr@msn.com', 'NO'),
+(15, 'Smit', 'Bhuj (kutch)', '9123456789', 'smitanam@gmail.com', 'YES');
 
 -- --------------------------------------------------------
 
@@ -132,8 +152,9 @@ INSERT INTO `plans` (`id`, `name`, `daysCount`, `maxBooks`, `amount`, `maxIssueD
 (7, '15 Days 100 Rs', 15, 2, 100, 15, 50),
 (10, '30 Days 300 Rs', 30, 4, 300, 15, 30),
 (11, '60 Days 600 Rs', 60, 12, 600, 30, 10),
-(12, 'termux test1 update2', 3, 6, 9, 7, 10),
-(16, 'new test2', 5, 4, 6, 2, 1);
+(20, '1 month 300 Rs', 31, 8, 300, 15, 20),
+(21, '28 days 200 Rs', 28, 2, 200, 5, 50),
+(22, '80 days 700 Rs', 80, 12, 700, 20, 10);
 
 -- --------------------------------------------------------
 
@@ -217,31 +238,31 @@ ALTER TABLE `writeOff`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `issues`
 --
 ALTER TABLE `issues`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `plans`
 --
 ALTER TABLE `plans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT for table `returns`

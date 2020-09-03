@@ -20,7 +20,7 @@
 <!-- Table for members  -->
 <div class="card bg-info rounded-lg">
 <div class="card-header bg-primary text-white text-center">
-<h2>List of Accounts</h>
+<h2>List of Issues</h>
 <a class="btn btn-info" href='./createIssue.php' >Issue Book</a>
 </div>
 <?php
